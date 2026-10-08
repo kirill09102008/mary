@@ -4,7 +4,7 @@
     "name": "Капитошка с бусинами",
     "description": "Милый брелок с бусинами, 10 см",
     "price": 400,
-    "photo": "",
+    "photo": "images/bus.jpg",
     "in_stock": true
   },
   {
@@ -12,7 +12,7 @@
     "name": "Капитошка",
     "description": "Брелок из пряжи, 15 см",
     "price": 350,
-    "photo": "",
+    "photo": "images/bez.jpg",
     "in_stock": true
   },
   {
@@ -20,7 +20,7 @@
     "name": "Гриб",
     "description": "Садовая фигурка гриба, идеальное украшение для дачного участка, 30 см",
     "price": 2000,
-    "photo": "",
+    "photo": "images/grib.jpg",
     "in_stock": true
   }
 ]
