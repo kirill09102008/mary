@@ -1,0 +1,277 @@
+/* ============ БАЗА ============ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    background: #fdf8f3;
+    color: #3d2b1f;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ============ ШАПКА ============ */
+header {
+    text-align: center;
+    padding: 60px 20px 30px;
+    background: linear-gradient(135deg, #fff5eb 0%, #f3e9dc 100%);
+    border-bottom: 1px solid #f0e2d0;
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #8b5e34;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+header p { color: #a07850; font-size: 1.1rem; }
+
+/* ============ ВЕРХНИЙ БЛОК ============ */
+.hero {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 1.05rem;
+    color: #7a6a5a;
+}
+
+/* ============ ОСНОВНОЙ БЛОК ============ */
+main { padding: 20px 0 60px; }
+
+main h2 {
+    color: #8b5e34;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* ============ КАРТОЧКА ТОВАРА ============ */
+.card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(139, 94, 52, 0.1);
+    transition: transform .3s, box-shadow .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(139, 94, 52, 0.2);
+}
+
+.card-img {
+    width: 100%;
+    height: 240px;
+    background: #f3e9dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    color: #8b5e34;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    font-weight: 800;
+}
+
+.card .desc {
+    color: #7a6a5a;
+    font-size: 0.95rem;
+    flex: 1;
+    margin-bottom: 14px;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #c17c3a;
+    margin-bottom: 12px;
+}
+
+.buy-btn {
+    background: #c17c3a;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+}
+
+.buy-btn:hover { background: #a5652b; }
+.buy-btn:active { transform: scale(0.98); }
+
+.loading, .empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #a07850;
+    font-size: 1.1rem;
+}
+
+/* ============ МОДАЛЬНОЕ ОКНО ============ */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(61, 43, 31, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.modal.hidden { display: none; }
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: pop .25s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+.modal-content h2 { color: #8b5e34; margin-bottom: 10px; }
+
+.modal-product {
+    background: #fdf8f3;
+    padding: 10px 14px;
+    border-radius: 10px;
+    color: #8b5e34;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 0.9rem;
+    color: #7a6a5a;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f0e2d0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    background: #fdf8f3;
+    transition: border-color .2s, background .2s;
+    color: #3d2b1f;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+    border-color: #c17c3a;
+    background: #fff;
+}
+
+.modal-content textarea { resize: vertical; min-height: 70px; }
+
+.modal-content button {
+    width: 100%;
+    background: #c17c3a;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: background .2s;
+}
+
+.modal-content button:hover { background: #a5652b; }
+
+.close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #a07850;
+    line-height: 1;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+.close:hover { color: #8b5e34; }
+
+.hint {
+    font-size: 0.8rem;
+    color: #a07850;
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* ============ ПОДВАЛ ============ */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #a07850;
+    background: #f3e9dc;
+    border-top: 1px solid #f0e2d0;
+}
+
+footer a {
+    color: #c17c3a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover { text-decoration: underline; }
+
+/* ============ МОБИЛЬНЫЕ ============ */
+@media (max-width: 500px) {
+    header { padding: 40px 20px 20px; }
+    .card-img { height: 200px; }
+    .grid { gap: 18px; }
+    .modal-content { padding: 24px; }
+}

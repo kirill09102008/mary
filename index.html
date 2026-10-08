@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Вязаные игрушки ручной работы. Мягкие мишки, зайки, котики. Заказ через Telegram.">
+    <title>🧶 Вязаные игрушки ручной работы</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>🧶 Вязаные игрушки</h1>
+        <p>Каждая создана с любовью и теплом рук</p>
+    </div>
+</header>
+
+<section class="hero container">
+    <p>🐻 Мягкие, безопасные, из натуральной пряжи. Идеальный подарок для детей и взрослых.</p>
+</section>
+
+<main class="container">
+    <h2>Наши игрушки</h2>
+    <div id="products" class="grid">
+        <div class="loading">Загрузка...</div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Вязаные игрушки. Связано с душой ❤️</p>
+        <p><a href="https://t.me/shpaika" target="_blank" rel="noopener">📩 Связаться в Telegram</a></p>
+    </div>
+</footer>
+
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Оформить заказ</h2>
+        <p id="modal-product" class="modal-product"></p>
+
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" placeholder="Как вас зовут?" autocomplete="name">
+
+        <label for="contact">Телефон или Telegram</label>
+        <input type="text" id="contact" placeholder="@username или +7..." autocomplete="tel">
+
+        <label for="comment">Комментарий (необязательно)</label>
+        <textarea id="comment" placeholder="Пожелания, цвет, размер..."></textarea>
+
+        <button onclick="submitOrder()">📩 Отправить заявку</button>
+        <p class="hint">Заявка откроется в Telegram — просто отправьте сообщение.</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
